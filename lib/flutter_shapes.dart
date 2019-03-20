@@ -2,9 +2,11 @@ library flutter_shapes;
 
 import 'dart:math';
 import 'dart:ui';
-import 'package:vector_math/vector_math.dart';
 
-/// A Calculator.
+double radians(double degree) {
+  return degree * pi / 180;
+}
+
 class Shapes {
   Shapes({this.canvas});
 

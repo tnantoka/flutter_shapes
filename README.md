@@ -1,6 +1,6 @@
 # FlutterShapes
 
-![](/screenshot.png)
+![](https://github.com/tnantoka/flutter_shapes/raw/master/screenshot.png)
 
 ## Adding FlutterShapes to your project
 
