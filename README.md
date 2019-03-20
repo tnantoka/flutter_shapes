@@ -2,7 +2,7 @@
 
 ![](/screenshot.png)
 
-## Adding SpriteWidget to your project
+## Adding FlutterShapes to your project
 
 ```
 dependencies:
