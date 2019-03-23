@@ -8,7 +8,7 @@ double radians(double degree) {
 }
 
 class Shapes {
-  Shapes({this.canvas});
+  Shapes({this.canvas, this.paint, this.radius, this.center});
 
   static List<String> types = ShapeTypes.values
       .map((ShapeTypes type) => type.toString().split('.')[1])
