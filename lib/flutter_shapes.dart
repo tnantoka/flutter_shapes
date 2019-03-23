@@ -142,8 +142,9 @@ class Shapes {
   }
 
   void draw(String typeString) {
-    final ShapeTypes type = ShapeTypes.values
-        .firstWhere((ShapeTypes t) => t.toString() == 'ShapeTypes.$typeString');
+    final ShapeTypes type = ShapeTypes.values.firstWhere(
+        (ShapeTypes t) => t.toString() == 'ShapeTypes.$typeString',
+        orElse: () => ShapeTypes.Circle);
     drawType(type);
   }
 }
