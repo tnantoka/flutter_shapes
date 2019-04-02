@@ -22,9 +22,9 @@ class MyPainter extends CustomPainter {
     Paint paint = Paint()..color = Colors.black;
     Shapes shapes = Shapes(canvas: canvas, radius: 50, paint: paint, center: Offset.zero);
 
-    shapes.drawCircle();
-    shapes.drawType(ShapeTypes.Circle);
-    shapes.draw('Circle');
+    shapes.drawCircle();                 // method name
+    shapes.drawType(ShapeTypes.Circle);  // enum
+    shapes.draw('Circle');               // string
   }
 }
 ```
