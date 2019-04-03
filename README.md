@@ -1,5 +1,9 @@
 # FlutterShapes
 
+![](https://github.com/tnantoka/flutter_shapes/raw/master/heart.gif)
+
+## Shape types
+
 ![](https://github.com/tnantoka/flutter_shapes/raw/master/screenshot.png)
 
 ## Adding FlutterShapes to your project
@@ -28,3 +32,9 @@ class MyPainter extends CustomPainter {
   }
 }
 ```
+## Acknowledgements
+
+https://proandroiddev.com/flutter-animation-creating-mediums-clap-animation-in-flutter-3168f047421e
+
+A great article about animation with Flutter .
+It helped me to write example codes.
