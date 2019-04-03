@@ -36,5 +36,5 @@ class MyPainter extends CustomPainter {
 
 https://proandroiddev.com/flutter-animation-creating-mediums-clap-animation-in-flutter-3168f047421e
 
-A great article about animation with Flutter .
+A great article about animation with Flutter.  
 It helped me to write example codes.
