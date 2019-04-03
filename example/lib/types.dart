@@ -18,7 +18,7 @@ class _TypesPageState extends State<TypesPage> {
 
 class _MyPainter extends CustomPainter {
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
+  bool shouldRepaint(_MyPainter oldDelegate) {
     return false;
   }
 

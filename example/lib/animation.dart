@@ -46,7 +46,6 @@ class _AnimationPageState extends State<AnimationPage>
     return GestureDetector(
         behavior: HitTestBehavior.opaque,
         child: Container(
-          padding: const EdgeInsets.all(50),
           child: CustomPaint(
               painter: _MyPainter(
                   sizeRatio: _sizeAnimationController.value,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'animation.dart';
+import 'paint.dart';
 import 'types.dart';
 
 void main() => runApp(MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
               tabs: const <Widget>[
                 Tab(text: 'Types'),
                 Tab(text: 'Animation'),
+                Tab(text: 'Paint'),
               ],
             ),
             title: const Text('Flutter Shapes Demo'),
@@ -29,7 +31,9 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               TypesPage(),
               AnimationPage(),
+              PaintPage(),
             ],
+            physics: NeverScrollableScrollPhysics(),
           ),
         ),
       ),
