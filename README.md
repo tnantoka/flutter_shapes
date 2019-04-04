@@ -1,6 +1,7 @@
 # FlutterShapes
 
 ![](https://github.com/tnantoka/flutter_shapes/raw/master/heart.gif)
+![](https://github.com/tnantoka/flutter_shapes/raw/master/star.gif)
 
 ## Shape types
 
