@@ -8,7 +8,7 @@ double radians(double degree) {
 }
 
 class Shapes {
-  Shapes({this.canvas, this.paint, this.radius, this.center});
+  Shapes({this.canvas, this.paint, this.radius, this.center, this.angle});
 
   static List<String> types = ShapeTypes.values
       .map((ShapeTypes type) => type.toString().split('.')[1])
@@ -18,77 +18,80 @@ class Shapes {
   Paint paint = Paint();
   double radius = 1;
   Offset center = Offset.zero;
+  double angle = 0;
 
-  Rect rect() => Rect.fromCircle(center: center, radius: radius);
+  Rect rect() => Rect.fromCircle(center: Offset.zero, radius: radius);
 
   void drawCircle() {
-    canvas.drawCircle(center, radius, paint);
+    rotate(() {
+      canvas.drawCircle(Offset.zero, radius, paint);
+    });
   }
 
   void drawRect() {
-    canvas.drawRect(rect(), paint);
+    rotate(() {
+      canvas.drawRect(rect(), paint);
+    });
   }
 
   void drawRRect({double cornerRadius}) {
-    canvas.drawRRect(
-        RRect.fromRectAndRadius(
-            rect(), Radius.circular(cornerRadius ?? radius * 0.2)),
-        paint);
+    rotate(() {
+      canvas.drawRRect(
+          RRect.fromRectAndRadius(
+              rect(), Radius.circular(cornerRadius ?? radius * 0.2)),
+          paint);
+    });
   }
 
   void drawPolygon(int num, {double initialAngle = 0}) {
-    final Path path = Path();
-    for (int i = 0; i < num; i++) {
-      final double radian = radians(initialAngle + 360 / num * i.toDouble());
-      final double x = center.dx + radius * cos(radian);
-      final double y = center.dy + radius * sin(radian);
-      if (i == 0) {
-        path.moveTo(x, y);
-      } else {
-        path.lineTo(x, y);
+    rotate(() {
+      final Path path = Path();
+      for (int i = 0; i < num; i++) {
+        final double radian = radians(initialAngle + 360 / num * i.toDouble());
+        final double x = radius * cos(radian);
+        final double y = radius * sin(radian);
+        if (i == 0) {
+          path.moveTo(x, y);
+        } else {
+          path.lineTo(x, y);
+        }
       }
-    }
-    path.close();
-    canvas.drawPath(path, paint);
+      path.close();
+      canvas.drawPath(path, paint);
+    });
   }
 
   void drawHeart() {
-    final Path path = Path();
+    rotate(() {
+      final Path path = Path();
 
-    path.moveTo(center.dx, center.dy + radius);
+      path.moveTo(0, radius);
 
-    path.cubicTo(
-        center.dx - radius * 2,
-        center.dy - radius * 0.5,
-        center.dx - radius * 0.5,
-        center.dy - radius * 1.5,
-        center.dx,
-        center.dy - radius * 0.5);
-    path.cubicTo(
-        center.dx + radius * 0.5,
-        center.dy - radius * 1.5,
-        center.dx + radius * 2,
-        center.dy - radius * 0.5,
-        center.dx,
-        center.dy + radius);
+      path.cubicTo(-radius * 2, -radius * 0.5, -radius * 0.5, -radius * 1.5, 0,
+          -radius * 0.5);
+      path.cubicTo(
+          radius * 0.5, -radius * 1.5, radius * 2, -radius * 0.5, 0, radius);
 
-    canvas.drawPath(path, paint);
+      canvas.drawPath(path, paint);
+    });
   }
 
   void drawStar(int num, {double initialAngle = 0}) {
-    final Path path = Path();
-    for (int i = 0; i < num; i++) {
-      final double radian = radians(initialAngle + 360 / num * i.toDouble());
-      final double x = center.dx + radius * (i.isEven ? 0.5 : 1) * cos(radian);
-      final double y = center.dy + radius * (i.isEven ? 0.5 : 1) * sin(radian);
-      if (i == 0) {
-        path.moveTo(x, y);
-      } else {
-        path.lineTo(x, y);
+    rotate(() {
+      final Path path = Path();
+      for (int i = 0; i < num; i++) {
+        final double radian = radians(initialAngle + 360 / num * i.toDouble());
+        final double x = radius * (i.isEven ? 0.5 : 1) * cos(radian);
+        final double y = radius * (i.isEven ? 0.5 : 1) * sin(radian);
+        if (i == 0) {
+          path.moveTo(x, y);
+        } else {
+          path.lineTo(x, y);
+        }
       }
-    }
-    path.close();
-    canvas.drawPath(path, paint);
+      path.close();
+      canvas.drawPath(path, paint);
+    });
   }
 
   void drawType(ShapeTypes type) {
@@ -146,6 +149,14 @@ class Shapes {
         (ShapeTypes t) => t.toString() == 'ShapeTypes.$typeString',
         orElse: () => ShapeTypes.Circle);
     drawType(type);
+  }
+
+  void rotate(VoidCallback callback) {
+    canvas.save();
+    canvas.translate(center.dx, center.dy);
+    canvas.rotate(angle);
+    callback();
+    canvas.restore();
   }
 }
 

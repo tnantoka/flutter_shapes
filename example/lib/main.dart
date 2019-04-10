@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'animation.dart';
 import 'paint.dart';
+import 'rotate.dart';
 import 'types.dart';
 
 void main() => runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       home: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
                 Tab(text: 'Types'),
                 Tab(text: 'Animation'),
                 Tab(text: 'Paint'),
+                Tab(text: 'Rotate'),
               ],
             ),
             title: const Text('Flutter Shapes Demo'),
@@ -32,8 +34,9 @@ class MyApp extends StatelessWidget {
               TypesPage(),
               AnimationPage(),
               PaintPage(),
+              RotatePage(),
             ],
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
           ),
         ),
       ),
