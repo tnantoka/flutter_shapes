@@ -8,17 +8,24 @@ double radians(double degree) {
 }
 
 class Shapes {
-  Shapes({this.canvas, this.paint, this.radius, this.center, this.angle});
+  Shapes(
+      {this.canvas,
+      this.paint,
+      this.radius = 1,
+      this.center = Offset.zero,
+      this.angle = 0}) {
+    paint = Paint();
+  }
 
   static List<String> types = ShapeType.values
       .map((ShapeType type) => type.toString().split('.')[1])
       .toList();
 
   Canvas canvas;
-  Paint paint = Paint();
-  double radius = 1;
-  Offset center = Offset.zero;
-  double angle = 0;
+  Paint paint;
+  double radius;
+  Offset center;
+  double angle;
 
   Rect rect() => Rect.fromCircle(center: Offset.zero, radius: radius);
 
