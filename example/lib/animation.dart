@@ -89,7 +89,7 @@ class _MyPainter extends CustomPainter {
       ..paint = heartPaint
       ..radius = 50 + sizeRatio * 20
       ..center = center
-      ..drawType(ShapeTypes.Heart);
+      ..drawType(ShapeType.Heart);
 
     if (sizeRatio == 0) {
       return;
@@ -109,7 +109,7 @@ class _MyPainter extends CustomPainter {
         ..radius = 20
         ..center = center.translate(
             sparkleRadius * cos(angle), sparkleRadius * sin(angle))
-        ..drawType(ShapeTypes.Star5);
+        ..drawType(ShapeType.Star5);
     }
   }
 }

@@ -28,9 +28,9 @@ class MyPainter extends CustomPainter {
     Paint paint = Paint()..color = Colors.black;
     Shapes shapes = Shapes(canvas: canvas, radius: 50, paint: paint, center: Offset.zero, angle: 0);
 
-    shapes.drawCircle();                 // method name
-    shapes.drawType(ShapeTypes.Circle);  // enum
-    shapes.draw('Circle');               // string
+    shapes.drawCircle();                // method name
+    shapes.drawType(ShapeType.Circle);  // enum
+    shapes.draw('Circle');              // string
   }
 }
 ```

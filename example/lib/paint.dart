@@ -59,7 +59,7 @@ class _MyPainter extends CustomPainter {
         ..paint = fill
         ..radius = 10
         ..center = position
-        ..drawType(ShapeTypes.Star5);
+        ..drawType(ShapeType.Star5);
     }
   }
 }

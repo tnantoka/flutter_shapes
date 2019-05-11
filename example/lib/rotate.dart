@@ -71,7 +71,7 @@ class _MyPainter extends CustomPainter {
         ..radius = item[2]
         ..center = item[0]
         ..angle = angle
-        ..drawType(ShapeTypes.RoundedRect);
+        ..drawType(ShapeType.RoundedRect);
     }
   }
 }

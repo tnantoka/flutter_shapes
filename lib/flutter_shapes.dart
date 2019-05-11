@@ -10,8 +10,8 @@ double radians(double degree) {
 class Shapes {
   Shapes({this.canvas, this.paint, this.radius, this.center, this.angle});
 
-  static List<String> types = ShapeTypes.values
-      .map((ShapeTypes type) => type.toString().split('.')[1])
+  static List<String> types = ShapeType.values
+      .map((ShapeType type) => type.toString().split('.')[1])
       .toList();
 
   Canvas canvas;
@@ -94,60 +94,60 @@ class Shapes {
     });
   }
 
-  void drawType(ShapeTypes type) {
+  void drawType(ShapeType type) {
     switch (type) {
-      case ShapeTypes.Circle:
+      case ShapeType.Circle:
         drawCircle();
         break;
-      case ShapeTypes.Rect:
+      case ShapeType.Rect:
         drawRect();
         break;
-      case ShapeTypes.RoundedRect:
+      case ShapeType.RoundedRect:
         drawRRect();
         break;
-      case ShapeTypes.Triangle:
+      case ShapeType.Triangle:
         drawPolygon(3, initialAngle: 30);
         break;
-      case ShapeTypes.Diamond:
+      case ShapeType.Diamond:
         drawPolygon(4, initialAngle: 0);
         break;
-      case ShapeTypes.Pentagon:
+      case ShapeType.Pentagon:
         drawPolygon(5, initialAngle: -18);
         break;
-      case ShapeTypes.Hexagon:
+      case ShapeType.Hexagon:
         drawPolygon(6, initialAngle: 0);
         break;
-      case ShapeTypes.Octagon:
+      case ShapeType.Octagon:
         drawPolygon(8, initialAngle: 0);
         break;
-      case ShapeTypes.Decagon:
+      case ShapeType.Decagon:
         drawPolygon(10, initialAngle: 0);
         break;
-      case ShapeTypes.Dodecagon:
+      case ShapeType.Dodecagon:
         drawPolygon(12, initialAngle: 0);
         break;
-      case ShapeTypes.Heart:
+      case ShapeType.Heart:
         drawHeart();
         break;
-      case ShapeTypes.Star5:
+      case ShapeType.Star5:
         drawStar(10, initialAngle: 15);
         break;
-      case ShapeTypes.Star6:
+      case ShapeType.Star6:
         drawStar(12, initialAngle: 0);
         break;
-      case ShapeTypes.Star7:
+      case ShapeType.Star7:
         drawStar(14, initialAngle: 0);
         break;
-      case ShapeTypes.Star8:
+      case ShapeType.Star8:
         drawStar(16, initialAngle: 0);
         break;
     }
   }
 
   void draw(String typeString) {
-    final ShapeTypes type = ShapeTypes.values.firstWhere(
-        (ShapeTypes t) => t.toString() == 'ShapeTypes.$typeString',
-        orElse: () => ShapeTypes.Circle);
+    final ShapeType type = ShapeType.values.firstWhere(
+        (ShapeType t) => t.toString() == 'ShapeType.$typeString',
+        orElse: () => ShapeType.Circle);
     drawType(type);
   }
 
@@ -160,7 +160,7 @@ class Shapes {
   }
 }
 
-enum ShapeTypes {
+enum ShapeType {
   Circle,
   Rect,
   RoundedRect,
