@@ -4,6 +4,8 @@
 ![](https://github.com/tnantoka/flutter_shapes/raw/master/star.gif)
 ![](https://github.com/tnantoka/flutter_shapes/raw/master/rotate.gif)
 
+[Live demo](https://tnantoka.github.io/flutter_shapes/) powered by [Flutter for web](https://github.com/flutter/flutter_web).
+
 ## Shape types
 
 ![](https://github.com/tnantoka/flutter_shapes/raw/master/screenshot.png)
