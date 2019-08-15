@@ -37,7 +37,7 @@ class _MyPainter extends CustomPainter {
       final int index = Shapes.types.indexOf(type);
       final double x =
           radius * 0.5 + radius * 2.9 * (index / 5).floor().toDouble();
-      final double y = radius * 0.5 + radius * 2.5 * (index % 5).toDouble() + 20;
+      final double y = radius * 0.5 + radius * 2.5 * (index % 5).toDouble();
       for (Paint paint in <Paint>[stroke, fill]) {
         (shapes
               ..paint = paint
