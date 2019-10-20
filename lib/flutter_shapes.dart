@@ -14,7 +14,7 @@ class Shapes {
       this.radius = 1,
       this.center = Offset.zero,
       this.angle = 0}) {
-    paint = Paint();
+    paint ??= Paint();
   }
 
   static List<String> types = ShapeType.values
