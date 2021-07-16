@@ -29,7 +29,7 @@ class _MyPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3;
     final Paint fill = Paint()
-      ..color = Colors.grey[400]
+      ..color = Colors.grey[400]!
       ..style = PaintingStyle.fill;
     const double radius = 40;
     final Shapes shapes = Shapes(canvas: canvas);

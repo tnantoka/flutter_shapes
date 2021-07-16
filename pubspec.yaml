@@ -1,11 +1,11 @@
 name: flutter_shapes
 description: Paint various shapes on canvas.
-version: 0.2.1
+version: 0.3.0
 author: tnantoka <tnantoka@bornneet.com>
 homepage: https://github.com/tnantoka/flutter_shapes
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

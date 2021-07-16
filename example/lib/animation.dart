@@ -9,10 +9,10 @@ class AnimationPage extends StatefulWidget {
 
 class _AnimationPageState extends State<AnimationPage>
     with TickerProviderStateMixin {
-  AnimationController _sizeAnimationController;
-  AnimationController _sparkleAnimationController;
-  CurvedAnimation _sparkleAnimation;
-  Random _random;
+  AnimationController? _sizeAnimationController;
+  AnimationController? _sparkleAnimationController;
+  CurvedAnimation? _sparkleAnimation;
+  Random? _random;
   double _randomValue = 0;
 
   @override
@@ -21,20 +21,20 @@ class _AnimationPageState extends State<AnimationPage>
 
     _sizeAnimationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 150));
-    _sizeAnimationController.addStatusListener((AnimationStatus status) {
+    _sizeAnimationController?.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed) {
-        _sizeAnimationController.reverse();
+        _sizeAnimationController?.reverse();
       }
     });
-    _sizeAnimationController.addListener(() {
+    _sizeAnimationController?.addListener(() {
       setState(() {});
     });
 
     _sparkleAnimationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     _sparkleAnimation = CurvedAnimation(
-        parent: _sparkleAnimationController, curve: Curves.easeIn);
-    _sparkleAnimation.addListener(() {
+        parent: _sparkleAnimationController!, curve: Curves.easeIn);
+    _sparkleAnimation?.addListener(() {
       setState(() {});
     });
 
@@ -48,14 +48,14 @@ class _AnimationPageState extends State<AnimationPage>
         child: Container(
           child: CustomPaint(
               painter: _MyPainter(
-                  sizeRatio: _sizeAnimationController.value,
-                  sparkleRatio: _sparkleAnimation.value,
+                  sizeRatio: _sizeAnimationController!.value,
+                  sparkleRatio: _sparkleAnimation!.value,
                   sparkleBaseAngle: _randomValue * 50)),
         ),
         onTap: () {
-          _sizeAnimationController.forward(from: 0);
-          _sparkleAnimationController.forward(from: 0);
-          _randomValue = _random.nextDouble();
+          _sizeAnimationController!.forward(from: 0);
+          _sparkleAnimationController!.forward(from: 0);
+          _randomValue = _random!.nextDouble();
         });
   }
 }
@@ -63,7 +63,10 @@ class _AnimationPageState extends State<AnimationPage>
 Random random = Random();
 
 class _MyPainter extends CustomPainter {
-  _MyPainter({this.sizeRatio, this.sparkleRatio, this.sparkleBaseAngle})
+  _MyPainter(
+      {required this.sizeRatio,
+      required this.sparkleRatio,
+      required this.sparkleBaseAngle})
       : super();
 
   double sizeRatio;
@@ -97,7 +100,7 @@ class _MyPainter extends CustomPainter {
 
     final double sparkleRadius = 40 + 50 * sparkleRatio;
     final Paint starPaint = Paint()
-      ..color = Colors.yellow[700].withOpacity(1 - sparkleRatio)
+      ..color = Colors.yellow[700]!.withOpacity(1 - sparkleRatio)
       ..style = PaintingStyle.fill;
 
     const int sparkleNum = 5;

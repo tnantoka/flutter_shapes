@@ -10,7 +10,7 @@ class RotatePage extends StatefulWidget {
 
 class _RotatePageState extends State<RotatePage> {
   double angle = 0;
-  Timer timer;
+  Timer? timer;
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _RotatePageState extends State<RotatePage> {
   @override
   void dispose() {
     super.dispose();
-    timer.cancel();
+    timer?.cancel();
   }
 
   @override
@@ -40,7 +40,7 @@ class _RotatePageState extends State<RotatePage> {
 }
 
 class _MyPainter extends CustomPainter {
-  _MyPainter({this.angle}) : super();
+  _MyPainter({required this.angle}) : super();
 
   double angle;
 

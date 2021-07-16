@@ -22,7 +22,7 @@ class _PaintPageState extends State<PaintPage> {
   }
 
   void _onPanUpdate(DragUpdateDetails update) {
-    final RenderBox renderBox = context.findRenderObject();
+    final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final Offset position = renderBox.globalToLocal(update.globalPosition);
     if (positions.isNotEmpty &&
         (positions.last.dx - position.dx).abs() < 10 &&
@@ -39,7 +39,7 @@ class _PaintPageState extends State<PaintPage> {
 }
 
 class _MyPainter extends CustomPainter {
-  _MyPainter({this.positions}) : super();
+  _MyPainter({required this.positions}) : super();
 
   List<Offset> positions;
 

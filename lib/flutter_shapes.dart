@@ -21,8 +21,8 @@ class Shapes {
       .map((ShapeType type) => type.toString().split('.')[1])
       .toList();
 
-  Canvas canvas;
-  Paint paint;
+  Canvas? canvas;
+  Paint? paint;
   double radius;
   Offset center;
   double angle;
@@ -31,22 +31,22 @@ class Shapes {
 
   void drawCircle() {
     rotate(() {
-      canvas.drawCircle(Offset.zero, radius, paint);
+      canvas!.drawCircle(Offset.zero, radius, paint!);
     });
   }
 
   void drawRect() {
     rotate(() {
-      canvas.drawRect(rect(), paint);
+      canvas!.drawRect(rect(), paint!);
     });
   }
 
-  void drawRRect({double cornerRadius}) {
+  void drawRRect({double? cornerRadius}) {
     rotate(() {
-      canvas.drawRRect(
+      canvas!.drawRRect(
           RRect.fromRectAndRadius(
               rect(), Radius.circular(cornerRadius ?? radius * 0.2)),
-          paint);
+          paint!);
     });
   }
 
@@ -64,7 +64,7 @@ class Shapes {
         }
       }
       path.close();
-      canvas.drawPath(path, paint);
+      canvas!.drawPath(path, paint!);
     });
   }
 
@@ -79,7 +79,7 @@ class Shapes {
       path.cubicTo(
           radius * 0.5, -radius * 1.5, radius * 2, -radius * 0.5, 0, radius);
 
-      canvas.drawPath(path, paint);
+      canvas!.drawPath(path, paint!);
     });
   }
 
@@ -97,7 +97,7 @@ class Shapes {
         }
       }
       path.close();
-      canvas.drawPath(path, paint);
+      canvas!.drawPath(path, paint!);
     });
   }
 
@@ -159,11 +159,11 @@ class Shapes {
   }
 
   void rotate(VoidCallback callback) {
-    canvas.save();
-    canvas.translate(center.dx, center.dy);
-    canvas.rotate(angle);
+    canvas!.save();
+    canvas!.translate(center.dx, center.dy);
+    canvas!.rotate(angle);
     callback();
-    canvas.restore();
+    canvas!.restore();
   }
 }
 
