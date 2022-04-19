@@ -16292,7 +16292,7 @@ ql:function(a){var s
 if(P.a85(a).gEw())return P.IA(C.en,a,C.X,!1)
 s=this.gNi()
 if(s==null)s=""
-return P.IA(C.en,s+("assets/"+a),C.X,!1)},
+return P.IA(C.en,s+("/flutter_shapes/assets/"+a),C.X,!1)},
 cA:function(a,b){return this.Xn(a,b)},
 Xn:function(a,b){var s=0,r=P.a9(t.B6),q,p=2,o,n=[],m=this,l,k,j,i,h,g,f,e
 var $async$cA=P.a5(function(c,d){if(c===1){o=d
